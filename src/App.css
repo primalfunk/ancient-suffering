@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+/* App.css */
+
+/* Overall retro aesthetic */
+body {
+  background-color: black;
+  color: #00FF00; /* Retro green text */
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#root {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Game text display area */
+#game-text {
+  width: 90%; /* Set a fixed width, adjust as needed */
+  max-width: 800px; /* Optional: Maximum width limit */
+  height: 60vh; /* Set a fixed height */
+  margin: 0 auto;
+  padding: 1rem;
+  border: 2px solid #00FF00;
+  background-color: black;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5); /* Glowing effect */
+  word-wrap: break-word; /* Ensure long words break to avoid expanding window */
+  white-space: pre-wrap; /* Preserve whitespace for text formatting */
+}
+
+#game-text pre,
+#game-text div {
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+}
+
+pre {
+  white-space: pre; /* Preserve ASCII art formatting */
+}
+
+/* Button container centering */
+.button-container {
+  display: flex;
+  flex-direction: column; /* Stack the two rows */
+  align-items: center; /* Center buttons horizontally */
+  margin-top: 20px; /* Space between text and buttons */
+}
+
+/* Direction buttons */
+#button-group, #action-button-group {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%; /* Make button rows full width */
+  max-width: 600px;
+  margin-bottom: 10px;
+}
+
+/* Active button styling */
+.active-button {
+  background-color: #4CAF50; /* Bright green */
   color: white;
+  border: 2px solid #4CAF50;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Smooth hover effect */
 }
 
-.App-link {
-  color: #61dafb;
+.active-button:hover {
+  background-color: #00FF00;
+  color: black;
+  border-color: #00FF00;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Inactive button styling */
+.inactive-button {
+  background-color: #333; /* Darker gray for inactive state */
+  color: #888; /* Muted gray text */
+  border: 1px solid #888;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 18px;
+  cursor: not-allowed;
+  opacity: 0.6; /* Slight transparency for inactive buttons */
+}
+
+/* Button hover effect */
+button:hover:not([disabled]) {
+  background-color: #00FF00;
+  color: black;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1080px) {
+  #game-text {
+    height: 55vh;
+    width: 95%;
   }
-  to {
-    transform: rotate(360deg);
+  
+  button {
+    font-size: 16px;
+    padding: 8px;
+  }
+  
+  pre {
+    font-size: 12px;
   }
 }
